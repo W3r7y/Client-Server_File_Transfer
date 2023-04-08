@@ -17,11 +17,15 @@ Both side using the same protocol for sending and receiving requests and respons
 version, operation code and payload size of the request. Along with the header arrives the payload itself.
 There are few types of requests: Registration request, Send public key request (for future key exchange), Reconnection request, Send 
 file request, Valid CRC request, Invalid CRC request, Final invalid CRC request.
+
 Depending on these requests, possible follow responses: Registration Succeed, Registration Failed, Reconnection succeed, Reconnection denied, Key exchange response, File received with follow CRC, Message received approve and Global server error.
 
 The client has to have transfer.info file with the following information:
+
 First line: server IP address with port. For example: 127.0.0.1:1234
+
 Second line: Desirable username. Only characters and numbers allowed, without special symbols.
+
 Third line: Name and path to the file that the client wants to send to the server. The path have to be relative to the folder from which
 the client executed.
 
