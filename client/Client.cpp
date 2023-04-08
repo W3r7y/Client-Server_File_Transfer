@@ -406,7 +406,7 @@ bool Client::sendPublicKey() {
 	socket_manager->connect();
 
 	// Send the request
-	if (!socket_manager->sendRequest(reinterpret_cast<uint8_t* const>(&request), sizeof(request))) {			//TODO:: check if needed const
+	if (!socket_manager->sendRequest(reinterpret_cast<uint8_t* const>(&request), sizeof(request))) {			
 		std::cout << "Error: Something went wrong while tried to SEND the request." << std::endl;
 		socket_manager->close();	
 		return false;
@@ -452,7 +452,7 @@ bool Client::reconnect() {
 	socket_manager->connect();
 
 	// Sending request
-	if (!socket_manager->sendRequest(reinterpret_cast<uint8_t* const>(&request), sizeof(request))) {			//TODO:: check if needed const
+	if (!socket_manager->sendRequest(reinterpret_cast<uint8_t* const>(&request), sizeof(request))) {			
 		std::cout << "Something went wrong while tried to send Reconnect request" << std::endl;
 		socket_manager->close();	// dont leave the connection open
 		return false;
@@ -614,7 +614,7 @@ int Client::sendFile() {
 		memcpy(validCksumRequest.req_header.cid.client_id, c_id.client_id, sizeof(c_id.client_id));
 
 		// Send request
-		if (!socket_manager->sendRequest(reinterpret_cast<uint8_t* const>(&validCksumRequest), sizeof(validCksumRequest))) {			//TODO:: check if needed const
+		if (!socket_manager->sendRequest(reinterpret_cast<uint8_t* const>(&validCksumRequest), sizeof(validCksumRequest))) {			
 			std::cout << "Something went wrong while tried to send Reconnect request" << std::endl;
 			socket_manager->close();	// dont leave the connection open
 			return FAILURE;
@@ -681,7 +681,7 @@ bool Client::sendFinalInvalidCrcRequest() {
 
 	socket_manager->connect();
 
-	if (!socket_manager->sendRequest(reinterpret_cast<uint8_t* const>(&request), sizeof(request))) {			//TODO:: check if needed const
+	if (!socket_manager->sendRequest(reinterpret_cast<uint8_t* const>(&request), sizeof(request))) {			
 		std::cout << "Error: Something went wrong while tried to send Final invalid CRC request" << std::endl;
 		socket_manager->close();	
 		return false;
