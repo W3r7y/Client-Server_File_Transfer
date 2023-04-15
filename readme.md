@@ -39,8 +39,9 @@ encrypting and decrypting the file which client wants to save at the server.
 Next step is that the client decrypts with his private RSA
 key, encrypts AES key that the server send back to him and use this key to encrypt his file. Before the encryption client calculate CRC
 value for the file to make sure later that server received the file properly. After encrypting the file, client sent it to the server. 
-Server which receives the file, decrypts it with clients AES key and calculates CRC value for the file. Then server sends to the client
-response that he received the file with follow CRC. The client compares the values of CRC that he calculated himself and the one that 
+Server which receives the file, decrypts it with clients AES key and calculates CRC value for the file.
+
+Then server sends to the client response that he received the file with follow CRC. The client compares the values of CRC that he calculated himself and the one that 
 server send back. If the values are the same, client sends valid CRC request to the server, if not client sends invalid CRC request to
 the server. If invalid CRC value received by the client after he send invalid CRC request, he will try to send the file once again, up to
 3 time. If at the third time he receives invalid CRC value from the server, client sends final invalid CRC request and finishes communication
